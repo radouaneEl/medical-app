@@ -50,6 +50,25 @@ medical-app/
 
 4. Access [http://localhost/medical-app](http://localhost/medical-app)
 
+## Initial Setup — Admin Account Creation
+
+On first launch, the application provides a setup wizard (`setup.php`) that allows you to create the initial admin account, only if no admin user exists yet.  
+This ensures secure onboarding and prevents public self-registration.
+
+**Important:**  
+Before using the setup wizard, make sure the `roles` table is seeded with at least the following entries:
+
+**sql Insertion **
+INSERT INTO roles (id, name) VALUES
+    (1, 'admin'),
+    (2, 'doctor');
+
+If not, you may encounter a foreign key constraint error when creating the first user.
+
+Once the admin account is created, the setup wizard is automatically disabled and all users must log in via the standard login page (index.php).
+
+Tip: For demo/testing, you can delete or rename setup.php after use for extra security.
+
 
 ## Contact
 
